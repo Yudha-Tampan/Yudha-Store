@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yudha Store — Solusi Belanja Modern dengan Sentuhan Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP for advanced animations (no API key) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-slate-100 min-h-screen">
+  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-rose-400 to-amber-300 flex items-center justify-center shadow-2xl">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 8H9L12 2Z" fill="white"/></svg>
+      </div>
+      <div>
+        <h1 class="text-2xl font-semibold">Yudha Store</h1>
+        <p id="typing-text" class="text-sm text-slate-300"></p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="openCartBtn" class="relative inline-flex items-center gap-2 px-4 py-2 rounded-2xl glass hover:scale-105 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="text-sm">Keranjang</span>
+        <span id="cartCount" class="ml-2 inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-400 text-slate-900 font-semibold">0</span>
+      </button>
+      <a href="#products" class="text-sm text-slate-300 hover:underline">Produk</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pb-20">
+    <!-- HERO -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-6">
+      <div class="space-y-4">
+        <div class="glass p-6 rounded-2xl shadow-xl">
+          <h2 class="text-3xl font-bold">Kenalkan: <span id="charName">Aurora</span></h2>
+          <p class="text-slate-300 mt-2">
+  Maskot digital interaktif yang bikin promosi produk terlihat lebih hidup dan menarik perhatian pengunjung.
+</p>
+          <div class="mt-4 grid grid-cols-2 gap-3 text-sm text-slate-200">
+            <div class="p-3 bg-white/3 rounded-lg">
+              <div class="font-semibold">Jenis</div>
+              <div id="charType">Virtual Mascot</div>
+            </div>
+            <div class="p-3 bg-white/3 rounded-lg">
+              <div class="font-semibold">Kepribadian</div>
+              <div id="charPersonality">Ramah, Enerjik, Cerdas</div>
+            </div>
+            <div class="p-3 bg-white/3 rounded-lg">
+              <div class="font-semibold">Gerakan Khas</div>
+              <div id="charMove">Melambai + Melompat</div>
+            </div>
+            <div class="p-3 bg-white/3 rounded-lg">
+              <div class="font-semibold">Ekspresi</div>
+              <div id="charExpression">Tersenyum, Fokus, Kejutan</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 p-6 rounded-2xl glass shadow-lg">
+          <h3 class="font-semibold text-lg">Kontrol Animasi</h3>
+          <p class="text-slate-300 mt-2 text-sm">Gunakan tombol di bawah untuk melihat animasi karakter dan transisi produk yang halus.</p>
+          <div class="mt-4 flex gap-3">
+            <button id="previewAnim" class="px-4 py-2 rounded-xl bg-amber-400 text-slate-900 font-semibold hover:scale-105 transition">Preview Animasi</button>
+            <button id="stopAnim" class="px-4 py-2 rounded-xl border border-white/10">Stop</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative flex items-center justify-center">
+        <div id="charCard" class="w-72 h-72 rounded-3xl bg-gradient-to-tr from-pink-500 to-indigo-500 shadow-2xl flex flex-col items-center justify-center transform-gpu">
+          <img id="charImg" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="character" class="w-56 h-56 object-cover rounded-xl shadow-inner"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES + PRODUCTS -->
+    <section id="products" class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-1 glass p-6 rounded-2xl shadow">
+        <h4 class="font-semibold text-lg">Fitur Unggulan Yudha Store</h4>
+<ul class="mt-4 text-sm text-slate-300 space-y-3">
+  <li>• Animasi elegan untuk kesan toko modern</li>
+  <li>• Keranjang belanja cepat tanpa loading lama</li>
+  <li>• Checkout instan melalui WhatsApp dengan pesan otomatis</li>
+  <li>• Desain responsif yang nyaman di HP, tablet, maupun laptop</li>
+  <li>• Sistem mudah dikustom sesuai gaya dan identitas Yudha Store</li>
+</ul>
+      </div>
+
+      <div class="lg:col-span-2 glass p-6 rounded-2xl shadow">
+        <div class="flex items-center justify-between">
+          <h4 class="font-semibold text-lg">Produk Pilihan</h4>
+          <div class="text-sm text-slate-300">Pilih produk, tambahkan ke keranjang, dan lanjutkan ke WhatsApp untuk transaksi.</div>
+        </div>
+
+        <div id="productsGrid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- product cards (rendered by JS) -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CART MODAL -->
+  <div id="cartModal" class="fixed inset-0 bg-black/50 hidden items-end md:items-center justify-center z-50">
+    <div class="w-full md:max-w-3xl bg-slate-900 rounded-t-2xl md:rounded-2xl p-6 glass">
+      <div class="flex items-center justify-between">
+        <h3 class="font-semibold text-xl">Keranjang Anda</h3>
+        <button id="closeCart" class="text-slate-300">Tutup</button>
+      </div>
+      <div id="cartItems" class="mt-4 space-y-4 max-h-72 overflow-y-auto"></div>
+      <div class="mt-4 flex items-center justify-between">
+        <div class="text-slate-300">Total:</div>
+        <div id="cartTotal" class="font-bold text-lg">Rp0</div>
+      </div>
+      <div class="mt-4 flex gap-3">
+        <button id="clearCart" class="px-4 py-2 rounded-xl border border-white/10">Kosongkan</button>
+        <button id="checkoutBtn" class="px-4 py-2 rounded-xl bg-amber-400 text-slate-900 font-semibold">Checkout via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="max-w-6xl mx-auto p-6 text-sm text-slate-400">
+    <div class="flex items-center justify-between">
+      <div>© Yudha Store — Solusi Belanja Modern dengan Sentuhan Digital</div>
+      <div>Hubungi: <span id="contactWa">088973461209</span></div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
