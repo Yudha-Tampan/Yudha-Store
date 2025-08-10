@@ -1,0 +1,21 @@
+/* Save this block as styles.css */
+:root{
+  --glass-bg: rgba(255,255,255,0.06);
+}
+
+.glass{ background: var(--glass-bg); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.06); }
+
+/* character card micro animations */
+#charCard{ transition: transform .45s cubic-bezier(.2,.9,.2,1), box-shadow .3s ease; }
+#charCard:hover{ transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 60px rgba(0,0,0,.45); }
+
+/* product card hover */
+.product-card{ transition: transform .35s ease, box-shadow .35s ease; }
+.product-card:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+
+/* utilities */
+.fade-in{ opacity:0; transform: translateY(8px); animation:fadeIn .6s forwards; }
+@keyframes fadeIn{ to{ opacity:1; transform:translateY(0);} }
+
+/* responsive tweaks */
+@media (max-width:640px){ #charCard{ width:240px; height:240px; } }
